@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "GitHub Actions created as part of the 'Create AI-Powered Actions' GitHub Skills exercise",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "ncc build src/main.js -o dist"
   },
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "@actions/core": "^1.11.1",
-    "@vercel/ncc": "^0.38.4"
+    "@vercel/ncc": "^0.38.4",
+    "openai": "^6.9.1"
   }
 }
