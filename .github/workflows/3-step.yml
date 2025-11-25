@@ -1,12 +1,8 @@
-name: Step 2
+name: Step 3
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "src/**"
-      - "dist/**"
+  issue_comment:
+    types: [created]
 
 permissions:
   contents: write

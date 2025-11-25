@@ -1,4 +1,4 @@
-name: Step 3 # Last step of the exercise
+name: Step 5 # Last step of the exercise
 
 on:
   workflow_dispatch:

@@ -2,46 +2,90 @@
 
 Your AI-powered action is ready, but you need a way for users to interact with it. You'll create a workflow that listens for jokes in issue comments and automatically responds with AI-generated ratings and feedback.
 
-### 📖 Theory: Issue Comment Triggers and GitHub Actions Context
 
-**Issue Comment Triggers** allow actions to respond to user interactions:
+### ⌨️ Activity: Author Workflow
 
-- `issue_comment` event triggers on comment creation, editing, or deletion
-- Event payload contains comment text, issue information, and user details
-- Conditional execution can filter for specific comment patterns or users
+Let's see your Dad Jokes action in action by creating a GitHub Actions workflow that uses it!
 
-**GitHub Actions Context** provides access to:
+1. Create a new GitHub Actions workflow file with the following name
 
-- `github.event.comment.body` for comment text
-- `github.event.issue.number` for issue identification
-- `github.token` for authenticated API access
-- Repository and user information for personalized responses
+   ```txt
+   .github/workflows/rate-joke.yml
+   ```
 
-For more details, see:
+1. Add the following contents to the workflow file:
 
-- [GitHub Actions - Issue comment events](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issue_comment)
-- [GitHub Actions contexts](https://docs.github.com/en/actions/learn-github-actions/contexts)
+   ```yaml
+   name: Rate Joke
+   run-name: {% raw %}Rate Joke by ${{ github.event.comment.user.login }}{% endraw %}
 
-### ⌨️ Activity: Create Workflow for Issue Comments
+   on:
+    issue_comment:
+      types: [created]
 
-1. Create `.github/workflows/joke-rater.yml` workflow file
-1. Configure `issue_comment` trigger with appropriate filters
-1. Add job that calls your AI-powered action with comment text
-1. Set up proper permissions for issue and comment access
+   permissions:
+    issues: write
+    contents: read
+    models: read
+  
+   jobs:
+     joke:
+       name: Rate Joke
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v6
+         - name: Rate Joke
+           id: rate-joke
+           uses: ./
+           with:
+            joke: {% raw %}${{ github.event.comment.body }}{% endraw %}
+            token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+         - name: Create comment
+           uses: peter-evans/create-or-update-comment@v5
+           with:
+            issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
+            body: |
+              ## 🤖 AI Joke Rating Results
+              
+              **Your joke:**
+              > {% raw %}${{ github.event.comment.body }}{% endraw %}
+              
+              **AI Analysis:**
+              {% raw %}${{ steps.rate-joke.outputs.result }}{% endraw %}
+              
+              ---
+              *Powered by GitHub Models* ✨
+   ```
+
+   This workflow triggers for all new issue comments in the repository.
+
+
+1. Commit and push the workflow file to the `main` branch:
+
+   ```sh
+   git add .github/workflows/rate-joke.yml
+   git commit -m "Add workflow to test joke action"
+   git push
+   ```
+
 
 ### ⌨️ Activity: Test Workflow with Real Comments
 
 1. Create a test issue in your repository
-1. Post a comment containing a joke to trigger the workflow
-1. Post a comment without a joke to test non-joke handling
+1. Post a comment containing a joke to trigger the workflow.
+  
+    Example:
+
+    ```md
+      Why did the scarecrow win an award? Because he was outstanding in his field!
+    ```
+
+1. Post a comment without a joke to test non-joke handling. 
+
+    Example:
+
+    ```md
+      I love learning about GitHub Actions!
+    ```
+
 1. Verify the action responds appropriately in both scenarios
-
-<details>
-<summary>Having trouble? 🤷</summary><br/>
-
-- Make sure your workflow has `issues: write` and `pull-requests: write` permissions to post comments
-- The `issue_comment` event includes comments on both issues and pull requests
-- Test your workflow with different types of comments to ensure it handles edge cases
-- Check the Actions tab to see workflow runs and debug any issues
-
-</details>
