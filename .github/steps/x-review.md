@@ -8,7 +8,7 @@ Here's a recap of your accomplishments:
 
 - Built authentication and integration with GitHub Models API
 - Implemented structured AI responses with proper error handling
-- Created responsive workflows that trigger on user interactions  
+- Created responsive workflows that trigger on user interactions
 - Developed robust testing patterns for AI-powered automation
 - Applied rate limiting and security best practices for AI services
 

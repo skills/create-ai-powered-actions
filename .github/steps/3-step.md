@@ -13,7 +13,7 @@ Your AI-powered action is ready, but you need a way for users to interact with i
 **GitHub Actions Context** provides access to:
 
 - `github.event.comment.body` for comment text
-- `github.event.issue.number` for issue identification  
+- `github.event.issue.number` for issue identification
 - `github.token` for authenticated API access
 - Repository and user information for personalized responses
 

@@ -19,7 +19,7 @@ For more information, see:
 ### ⌨️ Activity: Comprehensive Workflow Testing
 
 1. Test workflow with multiple rapid comments to verify rate limit handling
-1. Submit various types of content (jokes, questions, spam) to validate filtering  
+1. Submit various types of content (jokes, questions, spam) to validate filtering
 1. Test with extremely long comments to verify token limit handling
 1. Verify workflow permissions and security boundaries
 

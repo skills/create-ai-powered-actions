@@ -7,7 +7,7 @@ While your action provides good feedback, you want to make the data more structu
 **Structured Outputs** with AI models provide consistent, parseable data:
 
 - JSON Schema can define exact response format requirements
-- Response format parameters enforce structured data from AI models  
+- Response format parameters enforce structured data from AI models
 - Type validation ensures data integrity and prevents parsing errors
 
 **JSON Schema Definition** for joke rating should include:
@@ -24,7 +24,7 @@ For more information, see:
 
 ### ⌨️ Activity: Implement Structured Response Format
 
-1. Define JSON schema for joke rating response structure  
+1. Define JSON schema for joke rating response structure
 1. Update AI prompt and response format configuration
 1. Add response parsing and validation logic
 1. Update action outputs to include structured data fields
@@ -32,7 +32,7 @@ For more information, see:
 ### ⌨️ Activity: Test Structured Outputs Locally
 
 1. Test structured output with various joke types and formats
-1. Verify JSON parsing works correctly for all response scenarios  
+1. Verify JSON parsing works correctly for all response scenarios
 1. Test error handling when AI returns malformed JSON
 1. Validate all defined fields are populated correctly
 
