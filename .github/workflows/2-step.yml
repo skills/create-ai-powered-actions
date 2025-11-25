@@ -1,16 +1,12 @@
 name: Step 2
 
-
 on:
-  workflow_dispatch:
-  # Common event triggers: pull_request, push, issues, issue_comment (feel free to experiment)
-  # Docs: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
-  # Example:
-  # pull_request:
-  #   branches:
-  #     - main
-  #   types:
-  #     - closed
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "dist/**"
 
 permissions:
   contents: write
@@ -64,22 +60,26 @@ jobs:
 
       # START: Check practical exercise
 
-      # replace-me: Example of a grading check. You can add more checks as needed.
-      - name: Check if README file exists
-        id: check-file-exists
+      - name: Check if src/rateJoke.js file exists
+        id: check-ratejoke-file
         continue-on-error: true
         uses: skills/exercise-toolkit/actions/file-exists@v0.7.0
         with:
-          file: README.md
+          file: src/rateJoke.js
 
-      # replace-me: Example of a grading check. You can add more checks as needed.
-      - name: Check for keyphrase in README.md
-        id: check-for-keyphrase
+      - name: Check if src/main.js file exists
+        id: check-main-file
         continue-on-error: true
-        uses: skills/action-keyphrase-checker@v1
+        uses: skills/exercise-toolkit/actions/file-exists@v0.7.0
         with:
-          text-file: README.md
-          keyphrase: Installation guide
+          file: src/main.js
+
+      - name: Check if dist directory exists
+        id: check-dist-directory
+        continue-on-error: true
+        uses: skills/exercise-toolkit/actions/file-exists@v0.7.0
+        with:
+          file: dist
 
       - name: Update comment - step results
         uses: GrantBirki/comment@v2.1.1
@@ -92,12 +92,12 @@ jobs:
           vars: |
             step_number: 2
             results_table:
-              - description: "Checked if README.md file exists"
-                passed: ${{ steps.check-file-exists.outcome == 'success' }}
-              - description: "Checked for Installation guide in README.md"
-                passed: ${{ steps.check-for-keyphrase.outcome == 'success' }}
-
-      # Add more checks as needed
+              - description: "Checked if src/rateJoke.js file exists"
+                passed: ${{ steps.check-ratejoke-file.outcome == 'success' }}
+              - description: "Checked if src/main.js file exists"
+                passed: ${{ steps.check-main-file.outcome == 'success' }}
+              - description: "Checked if dist directory exists"
+                passed: ${{ steps.check-dist-directory.outcome == 'success' }}
 
       # END: Check practical exercise
 
@@ -107,7 +107,7 @@ jobs:
 
   post_next_step_content:
     name: Post next step content
-    needs: [find_exercise] # if check_step_work then "needs: [find_exercise, check_step_work]"
+    needs: [find_exercise, check_step_work]
     runs-on: ubuntu-latest
     env:
       ISSUE_REPOSITORY: ${{ github.repository }}
