@@ -1,4 +1,4 @@
-const { rateJoke } = require("./rateJokeStructured");
+const { rateJoke } = require("./rateJoke");
 const core = require("@actions/core");
 
 async function run() {
@@ -17,4 +17,7 @@ async function run() {
   core.setOutput("result", JSON.stringify(rating));
 }
 
-run();
+// export run
+module.exports = { run };
+
+// run();
