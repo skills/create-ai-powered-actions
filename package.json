@@ -1,0 +1,15 @@
+{
+  "name": "dad-joke-action",
+  "version": "1.0.0",
+  "description": "GitHub Actions created as part of the 'Create AI-Powered Actions' GitHub Skills exercise",
+  "scripts": {
+    "build": "ncc build src/main.js -o dist"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@vercel/ncc": "^0.38.4",
+    "openai": "^6.9.1"
+  }
+}
