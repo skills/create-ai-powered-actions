@@ -5,6 +5,9 @@ inputs:
   joke:
     description: "The joke to be rated"
     required: true
+  token:
+    description: "Personal access token, can be passed as secrets.GITHUB_TOKEN"
+    default: ${{ github.token }}
 
 outputs:
   result:

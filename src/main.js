@@ -6,7 +6,7 @@ async function run() {
   const joke = core.getInput("joke", { required: true });
   
   // Get the GitHub token for authentication
-  const token = process.env.GITHUB_TOKEN;
+  const token = core.getInput("token", { required: true });
   
   // Rate the joke using AI with structured outputs
   const rating = await rateJoke(joke, token);
