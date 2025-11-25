@@ -1,23 +1,27 @@
-# (replace-me: Exercise title)
+# Create AI Powered Actions
 
-_(replace-me: One-line description of the exercise)_
+_Build intelligent GitHub Actions that leverage AI models to analyze and respond to user content._
 
 ## Welcome
 
-- **Who is this for**: (replace-me: Target audience description)
-- **What you'll learn**: (replace-me: Learning objectives)
-- **What you'll build**: (replace-me: Description of what the learner will create)
+- **Who is this for**: Developers familiar with GitHub Actions who want to integrate AI capabilities into their automation workflows
+- **What you'll learn**: How to authenticate with GitHub Models, integrate AI responses into actions, handle structured outputs, and create intelligent automation
+- **What you'll build**: An AI-powered GitHub Action that analyzes jokes posted in issue comments, rates them using GitHub Models, and responds with intelligent feedback
 - **Prerequisites**:
-  - (replace-me: Prerequisite skill/exercise)
-  - (replace-me: Other prerequisites)
+  - Completion of **write-javascript-actions** exercise
+  - Basic understanding of JavaScript/Node.js
+  - Familiarity with GitHub Actions workflows
+  - Understanding of action.yml configuration
 
-- **How long**: This exercise takes less than (replace-me: estimated time) to complete.
+- **How long**: This exercise takes less than 2 hours to complete.
 
 In this exercise, you will:
 
-1. (replace-me: Learning objective step #1)
-1. (replace-me: Learning objective step #2)
-1. (replace-me: Learning objective step #N)
+1. Set up authentication with GitHub Models and install required dependencies
+1. Create action code that integrates with AI models for joke rating
+1. Test the action locally and build for distribution
+1. Build a workflow that triggers on issue comments and responds with AI feedback
+1. Enhance the action with structured outputs for richer data processing
 
 
 ### How to start this exercise
@@ -25,7 +29,7 @@ In this exercise, you will:
 Simply copy the exercise to your account, then give your favorite Octocat (Mona) **about 20 seconds** to prepare the first lesson, then **refresh the page**.
 
 <!--  (replace-me: Make sure to edit the URL with proper template_owner, template_name, repo name and description)  -->
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=skills&template_name=exercise-template&owner=%40me&name=skills-<replace-me>&description=Exercise:+Replace+me&visibility=public)
+[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=FidelusAleksander&template_name=create-ai-powered-actions&owner=%40me&name=create-ai-powered-actions&description=Exercise:+Create+AI+Powered+Actions&visibility=public)
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>
