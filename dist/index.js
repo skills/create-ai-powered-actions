@@ -36923,7 +36923,7 @@ async function rateJoke(joke, token) {
     messages: [
       {
         role: "system",
-        content: "You are a joke critic who evaluates humor quality, creativity, and delivery. Provide structured evaluations."
+        content: "You are a helpful assistant that evaluates jokes. Assess whether the input is actually a joke, and if so, rate its humor quality, creativity, and delivery."
       },
       {
         role: "user",
@@ -36942,6 +36942,10 @@ async function rateJoke(joke, token) {
         schema: {
           type: "object",
           properties: {
+            is_joke: {
+              type: "boolean",
+              description: "Whether the input is actually a joke or attempt at humor"
+            },
             score: {
               type: "number",
               description: "Rating from 1-10, where 10 is the funniest"
@@ -36952,10 +36956,10 @@ async function rateJoke(joke, token) {
             },
             feedback: {
               type: "string",
-              description: "Detailed feedback on the joke's strengths and weaknesses"
+              description: "Short feedback on the joke's strengths and weaknesses"
             }
           },
-          required: ["score", "humor_type", "feedback"],
+          required: ["is_joke"],
           additionalProperties: false
         }
       }

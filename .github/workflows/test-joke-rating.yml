@@ -1,0 +1,48 @@
+name: Test Joke Rating
+
+on:
+  workflow_dispatch:
+    inputs:
+      joke:
+        description: 'The joke to rate'
+        required: true
+        type: string
+
+jobs:
+  rate-joke:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Rate the joke
+        id: rate
+        uses: ./
+        with:
+          joke: ${{ inputs.joke }}
+      
+      - name: Create joke summary
+        if: fromJSON(steps.rate.outputs.result).is_joke == true
+        run: |
+          echo "## 🎭 Joke Rating Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Input:** ${{ inputs.joke }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Score:** ${{ fromJSON(steps.rate.outputs.result).score }}/10" >> $GITHUB_STEP_SUMMARY
+          echo "**Humor Type:** ${{ fromJSON(steps.rate.outputs.result).humor_type }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Feedback:** ${{ fromJSON(steps.rate.outputs.result).feedback }}" >> $GITHUB_STEP_SUMMARY
+      
+      - name: Create not-a-joke summary
+        if: fromJSON(steps.rate.outputs.result).is_joke == false
+        run: |
+          echo "## ❌ Not a Joke" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Input:** ${{ inputs.joke }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The AI determined that this input is not actually a joke." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Try submitting something funnier! 😄" >> $GITHUB_STEP_SUMMARY

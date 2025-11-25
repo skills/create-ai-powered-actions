@@ -13,7 +13,7 @@ async function rateJoke(joke, token) {
     messages: [
       {
         role: "system",
-        content: "You are a joke critic who evaluates humor quality, creativity, and delivery. Provide a detailed but concise evaluation."
+        content: "You are a helpful assistant that evaluates jokes. Assess whether the input is actually a joke, and if so, rate its humor quality, creativity, and delivery."
       },
       {
         role: "user",
