@@ -37,19 +37,19 @@ async function rateJoke(joke, token) {
               description: "Whether the input is actually a joke or attempt at humor"
             },
             score: {
-              type: "number",
-              description: "Rating from 1-10, where 10 is the funniest"
+              type: ["number", "null"],
+              description: "Rating from 1-10, where 10 is the funniest. Null if not a joke."
             },
             humor_type: {
-              type: "string",
-              description: "The type of humor (e.g., pun, wordplay, observational, dark, etc.)"
+              type: ["string", "null"],
+              description: "The type of humor (e.g., pun, wordplay, observational, dark, etc.). Null if not a joke."
             },
             feedback: {
-              type: "string",
-              description: "Short feedback on the joke's strengths and weaknesses"
+              type: ["string", "null"],
+              description: "Short feedback on the joke's strengths and weaknesses. Null if not a joke."
             }
           },
-          required: ["is_joke"],
+          required: ["is_joke", "score", "humor_type", "feedback"],
           additionalProperties: false
         }
       }
