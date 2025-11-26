@@ -18,7 +18,7 @@ jobs:
     if: |
       !github.event.repository.is_template
     name: Start Exercise
-    uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.7.0
+    uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.7.3
     with:
       exercise-title: "Create AI Powered Actions"
       intro-message: "Discover how to integrate AI models into GitHub Actions to create smarter, more capable automation."

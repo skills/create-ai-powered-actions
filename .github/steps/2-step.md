@@ -2,26 +2,6 @@
 
 Now that your action can connect to GitHub Models, it's time to implement the core logic that will analyze jokes and provide ratings. You'll create the main action code that processes comments and generates AI-powered feedback.
 
-### 📖 Theory: AI Model Integration and Error Handling
-
-**Model Selection** is crucial for optimal performance and cost:
-
-- **Low-tier models** (like GPT-4o-mini) are suitable for simple text analysis tasks
-- **Rate limit management** requires handling API limits gracefully with retry logic
-- **Prompt engineering** affects output quality - clear, specific prompts yield better results
-
-**Error Handling** for AI services should account for:
-
-- Network timeouts and connection issues
-- Rate limit exceeded responses (HTTP 429)
-- Invalid or malformed responses from the AI model
-- Token limit exceeded errors
-
-For more information, see:
-
-- [GitHub Models API - Chat completions](https://docs.github.com/en/rest/models/chat-completions)
-- [OpenAI SDK documentation](https://github.com/openai/openai-node)
-
 ### ⌨️ Activity: Implement the Action
 
 Let's create the source files and implement the logic for your action.
@@ -78,7 +58,7 @@ Let's create the source files and implement the logic for your action.
       const rating = await rateJoke(joke, token);
       
       // Set the output
-      core.setOutput("result", JSON.stringify(rating));
+      core.setOutput("result", rating);
     }
 
     module.exports = { run };
@@ -99,20 +79,18 @@ To test the action locally, we need to configure a `.env` file with properly for
 
 1. Create a copy of `.env.example` file and name it `.env`
 
-  ```sh
-  cp .env.example .env
-  ```
+    ```sh
+    cp .env.example .env
+    ```
 
 1. Update the values in `.env` with your GitHub token and a test joke
 
-  ```sh
-  echo $GITHUB_TOKEN
-  ```
+    ```sh
+    echo $GITHUB_TOKEN
+    ```
 
 1. In the `Run and Debug` section of VSCode, run the action
 1. If everything works correctly, you should see the AI-generated joke rating in the debug console!
-
-
 
 ### ⌨️ Activity: Build and Package Action
 
@@ -125,4 +103,3 @@ Let's build and package the action for distribution.
    ```
 
 1. Commit and push all the changes to the `main` branch.
-

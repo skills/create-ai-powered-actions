@@ -2,7 +2,6 @@
 
 Your AI-powered action is ready, but you need a way for users to interact with it. You'll create a workflow that listens for jokes in issue comments and automatically responds with AI-generated ratings and feedback.
 
-
 ### ⌨️ Activity: Author Workflow
 
 Let's see your Dad Jokes action in action by creating a GitHub Actions workflow that uses it!
@@ -40,10 +39,12 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
            with:
             joke: {% raw %}${{ github.event.comment.body }}{% endraw %}
             token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-         - name: Create comment
+         - name: Update comment
            uses: peter-evans/create-or-update-comment@v5
            with:
-            issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
+            comment-id: {% raw %}${{ github.event.comment.id }}{% endraw %}
+            reactions: laugh
+            edit-mode: replace
             body: |
               ## 🤖 AI Joke Rating Results
               
@@ -53,11 +54,9 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
               **AI Analysis:**
               {% raw %}${{ steps.rate-joke.outputs.result }}{% endraw %}
               
-              ---
-              *Powered by GitHub Models* ✨
    ```
 
-   This workflow triggers for all new issue comments in the repository.
+   This workflow triggers for all new issue comments in the repository and update the comment with the `body` containing the joke and AI analysis.
 
 
 1. Commit and push the workflow file to the `main` branch:
@@ -67,7 +66,6 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
    git commit -m "Add workflow to test joke action"
    git push
    ```
-
 
 ### ⌨️ Activity: Test Workflow with Real Comments
 

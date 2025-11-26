@@ -1,36 +1,14 @@
 const OpenAI = require("openai");
+const { zodResponseFormat } = require("openai/helpers/zod");
+const { z } = require("zod");
 
-// Define the structured output format using JSON Schema
-// const RESPONSE_FORMAT = {
-//   type: "json_schema",
-//   json_schema: {
-//     name: "joke_rating",
-//     strict: true,
-//     schema: {
-//       type: "object",
-//       properties: {
-//         is_joke: {
-//           type: "boolean",
-//           description: "Whether the input is actually a joke or attempt at humor"
-//         },
-//         score: {
-//           type: ["number", "null"],
-//           description: "Rating from 1-10, where 10 is the funniest. Null if not a joke."
-//         },
-//         humor_type: {
-//           type: ["string", "null"],
-//           description: "The type of humor (e.g., pun, wordplay, observational, dark, etc.). Null if not a joke."
-//         },
-//         feedback: {
-//           type: ["string", "null"],
-//           description: "Short feedback on the joke's strengths and weaknesses. Null if not a joke."
-//         }
-//       },
-//       required: ["is_joke", "score", "humor_type", "feedback"],
-//       additionalProperties: false
-//     }
-//   }
-// };
+// Define the structured output format using Zod schema
+const JokeRatingSchema = z.object({
+  is_joke: z.boolean().describe("Whether the input is actually a joke or attempt at humor"),
+  score: z.number().min(1).max(10).nullable().describe("Rating from 1-10, where 10 is the funniest."),
+  humor_type: z.string().nullable().describe("The type of humor (e.g., pun, wordplay, dad joke, dark, etc)"),
+  feedback: z.string().nullable().describe("Short feedback on the joke's strengths and weaknesses."),
+});
 
 async function rateJoke(joke, token) {
   const endpoint = "https://models.github.ai/inference";
@@ -38,28 +16,27 @@ async function rateJoke(joke, token) {
   // Initialize OpenAI client with GitHub Models endpoint
   const client = new OpenAI({ baseURL: endpoint, apiKey: token });
 
-  // Create chat completion with structured output format
-  const response = await client.chat.completions.create({
+  // Create chat completion with Zod response format
+  const completion = await client.chat.completions.parse({
     messages: [
       {
         role: "system",
-        content: "You are a helpful assistant that evaluates jokes. Assess whether the input is actually a joke, and if so, rate its humor quality, creativity, and delivery."
+        content:
+          "You are a helpful assistant that evaluates jokes. Assess whether the input is actually a joke, and if so, rate its humor quality, creativity, and delivery.",
       },
       {
         role: "user",
-        content: `Please rate this joke: "${joke}"`
-      }
+        content: `Please rate this joke: "${joke}"`,
+      },
     ],
     model: "openai/gpt-4.1",
-    // response_format: RESPONSE_FORMAT
+
+    // Use Zod schema for structured response
+    response_format: zodResponseFormat(JokeRatingSchema, "joke_rating"),
   });
 
-  // Parse and return the structured JSON response
-  // return JSON.parse(response.choices[0].message.content);
-
-  // Return the plain text response
-  return response.choices[0].message.content;
-
+  // Return the parsed response (automatically validated by Zod)
+  return completion.choices[0]?.message?.parsed;
 }
 
 module.exports = { rateJoke };

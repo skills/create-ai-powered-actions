@@ -30,7 +30,7 @@ Simply copy the exercise to your account, then give your favorite Octocat (Mona)
 
 <!--  (replace-me: Make sure to edit the URL with proper template_owner, template_name, repo name and description)  -->
 
-[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=FidelusAleksander&template_name=create-ai-powered-actions&owner=%40me&name=create-ai-powered-actions&description=Exercise:+Create+AI+Powered+Actions&visibility=public)
+[![](https://img.shields.io/badge/Copy%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/new?template_owner=FidelusAleksander&template_name=create-ai-powered-actions&owner=%40me&name=skills-create-ai-powered-actions&description=Exercise:+Create+AI+Powered+Actions&visibility=public)
 
 <details>
 <summary>Having trouble? 🤷</summary><br/>

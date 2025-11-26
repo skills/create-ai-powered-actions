@@ -1,34 +1,31 @@
-## Step 5: Final Testing and Validation
+## Step 5: Trigger & Validate
 
-Your AI-powered action is complete! Now you need to put it through its paces with comprehensive testing to ensure it works reliably across different scenarios and edge cases.
+Awesome! :rocket: You've created the Rate Jokes GitHub Action, leveraged structured outputs and authored a workflow to use it.
 
-### 📖 Theory: Production Testing for AI-Powered Actions
+The only thing left to do is test it out!
 
-**Production Testing** for AI-powered actions requires:
+### ⌨️ Activity: Try out your action
 
-- **Rate limit handling**: Ensuring graceful degradation when API limits are hit
-- **Input validation**: Protecting against malicious or malformed input data
-- **Error recovery**: Providing meaningful feedback when AI services are unavailable
-- **Performance monitoring**: Tracking response times and success rates
+1. Create a comment in this issue (or create a new issue).
 
-For more information, see:
+1. Comment with jokes you'd like the AI to rate. Here is an example joke you can use:
 
-- [GitHub Actions - Monitoring and troubleshooting](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows)
-- [GitHub Models - Rate limits](https://docs.github.com/en/github-models/prototyping-with-ai-models#rate-limits)
+    ```md
+    How many tickles does it take to tickle an octopus? Ten-tickles!
+    ```
 
-### ⌨️ Activity: Comprehensive Workflow Testing
+    You can find example jokes on the [icanhazdadjoke](https://icanhazdadjoke.com/) website.
 
-1. Test workflow with multiple rapid comments to verify rate limit handling
-1. Submit various types of content (jokes, questions, spam) to validate filtering
-1. Test with extremely long comments to verify token limit handling
-1. Verify workflow permissions and security boundaries
+1. Comment with regular comments and monitor if they are correctly classified as non-jokes.
 
-<details>
-<summary>Having trouble? 🤷</summary><br/>
+1. Mona will post the exercise review once your new Rate Joke workflow completes **successfully**! 
 
-- Monitor the Actions tab during testing to see real-time execution logs
-- Test edge cases like empty comments, very long text, and special characters
-- Verify that rate limiting doesn't crash your action but provides helpful error messages
-- Make sure your action works consistently across different types of repositories
+   <details>
+   <summary>Having trouble? 🤷</summary><br/>
 
-</details>
+   If the workflow doesn't trigger or fails:
+   - Check the Actions tab for error messages
+   - Verify that your `dist/index.js` file exists and was committed
+   - If you did any updates to your source code, ensure you re-bundled with `npm run build` and pushed the changes
+   - Ensure your workflow file is correctly formatted
+   </details>
