@@ -10,11 +10,11 @@ The only thing left to do is test it out!
 
 1. Comment with jokes you'd like the AI to rate. Here is an example joke you can use:
 
-  ```md
-  How many tickles does it take to tickle an octopus? Ten-tickles!
-  ```
+    ```md
+    How many tickles does it take to tickle an octopus? Ten-tickles!
+    ```
 
-  You can find example jokes on the [icanhazdadjoke](https://icanhazdadjoke.com/) website.
+    You can find example jokes on the [icanhazdadjoke](https://icanhazdadjoke.com/) website.
 
 1. Comment with regular comments and monitor if they are correctly classified as non-jokes.
 
