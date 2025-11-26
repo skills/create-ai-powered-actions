@@ -2,7 +2,6 @@
 
 Your development team wants to add intelligence to your joke-handling action. The first step is setting up the foundation to connect with GitHub Models and prepare your action for AI integration.
 
-
 ### ⌨️ Activity: Set up your development environment
 
 Let's use **GitHub Codespaces** to set up a cloud-based development environment and work in it for the remainder of the exercise!

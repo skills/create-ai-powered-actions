@@ -1,8 +1,11 @@
-name: Step 5 # Last step of the exercise
+name: Step 5
 
 on:
-  workflow_dispatch:
-
+  workflow_run:
+    workflows:
+      - Rate Joke
+    types:
+      - completed
 
 permissions:
   contents: write
@@ -14,6 +17,7 @@ env:
 
 jobs:
   find_exercise:
+    if: github.event.workflow_run.conclusion == 'success'
     name: Find Exercise Issue
     uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.7.0
 
