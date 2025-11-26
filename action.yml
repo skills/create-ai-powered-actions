@@ -1,0 +1,18 @@
+name: "Rate Joke Action"
+description: "Rates a joke using GitHub Models"
+
+inputs:
+  joke:
+    description: "The joke to be rated"
+    required: true
+  token:
+    description: "Personal access token to be used for GitHub Models API call"
+    default: ${{ github.token }}
+
+outputs:
+  result:
+    description: "AI-generated joke evaluation"
+
+runs:
+  using: node24
+  main: dist/index.js
