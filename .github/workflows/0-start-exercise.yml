@@ -1,11 +1,9 @@
 name: Step 0 # Start Exercise
 
 on:
-  workflow_dispatch:
-  # NOTE: Make sure the repository is a template before enabling this trigger.
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -22,8 +20,8 @@ jobs:
     name: Start Exercise
     uses: skills/exercise-toolkit/.github/workflows/start-exercise.yml@v0.7.0
     with:
-      exercise-title: "(replace-me: Exercise title)"
-      intro-message: "(replace-me: Brief one line introduction message for the exercise)"
+      exercise-title: "Create AI Powered Actions"
+      intro-message: "Discover how to integrate AI models into GitHub Actions to create smarter, more capable automation."
 
   post_next_step_content:
     name: Post next step content
@@ -35,10 +33,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Get response templates
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: skills/exercise-toolkit
           path: exercise-toolkit

@@ -1,27 +1,91 @@
-## Step 3: (replace-me: STEP-NAME)
+## Step 3: Create Interactive Workflow
 
-(replace-me: OPTIONAL Brief story or scenario to introduce the step)
+Your AI-powered action is ready, but you need a way for users to interact with it. You'll create a workflow that listens for jokes in issue comments and automatically responds with AI-generated ratings and feedback.
 
-### 📖 Theory: (replace-me: Theory title)
 
-<!-- GitHub-styled notifications can be used outside of ordered lists. Available options are: NOTE, IMPORTANT, WARNING, TIP, CAUTION -->
-<!--
-> [!NOTE]
-> (Important note or additional information relevant to this section)
- -->
+### ⌨️ Activity: Author Workflow
 
-(replace-me: Optional theory or background information relevant to this step)
+Let's see your Dad Jokes action in action by creating a GitHub Actions workflow that uses it!
 
-### ⌨️ Activity: (replace-me: Activity title)
+1. Create a new GitHub Actions workflow file with the following name
 
-1. (replace-me: First instruction)
-1. (replace-me: Second instruction)
-1. (replace-me: Additional instructions as needed)
+   ```txt
+   .github/workflows/rate-joke.yml
+   ```
 
-<details>
-<summary>Having trouble? 🤷</summary><br/>
+1. Add the following contents to the workflow file:
 
-- (replace-me: Troubleshooting tip or hint)
-- (replace-me: Additional troubleshooting tips as needed)
+   ```yaml
+   name: Rate Joke
+   run-name: {% raw %}Rate Joke by ${{ github.event.comment.user.login }}{% endraw %}
 
-</details>
+   on:
+    issue_comment:
+      types: [created]
+
+   permissions:
+    issues: write
+    contents: read
+    models: read
+  
+   jobs:
+     joke:
+       name: Rate Joke
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v6
+         - name: Rate Joke
+           id: rate-joke
+           uses: ./
+           with:
+            joke: {% raw %}${{ github.event.comment.body }}{% endraw %}
+            token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+         - name: Create comment
+           uses: peter-evans/create-or-update-comment@v5
+           with:
+            issue-number: {% raw %}${{ github.event.issue.number }}{% endraw %}
+            body: |
+              ## 🤖 AI Joke Rating Results
+              
+              **Your joke:**
+              > {% raw %}${{ github.event.comment.body }}{% endraw %}
+              
+              **AI Analysis:**
+              {% raw %}${{ steps.rate-joke.outputs.result }}{% endraw %}
+              
+              ---
+              *Powered by GitHub Models* ✨
+   ```
+
+   This workflow triggers for all new issue comments in the repository.
+
+
+1. Commit and push the workflow file to the `main` branch:
+
+   ```sh
+   git add .github/workflows/rate-joke.yml
+   git commit -m "Add workflow to test joke action"
+   git push
+   ```
+
+
+### ⌨️ Activity: Test Workflow with Real Comments
+
+1. Create a test issue in your repository
+1. Post a comment containing a joke to trigger the workflow.
+  
+    Example:
+
+    ```md
+    Why did the scarecrow win an award? Because he was outstanding in his field!
+    ```
+
+1. Post a comment without a joke to test non-joke handling.
+
+    Example:
+
+    ```md
+    I love learning about GitHub Actions!
+    ```
+
+1. Verify the action responds appropriately in both scenarios

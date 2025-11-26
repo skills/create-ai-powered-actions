@@ -17,7 +17,4 @@ async function run() {
   core.setOutput("result", JSON.stringify(rating));
 }
 
-// export run
 module.exports = { run };
-
-// run();

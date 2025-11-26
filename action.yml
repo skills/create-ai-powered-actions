@@ -1,12 +1,12 @@
-name: "Joke Action"
-description: "Rates a joke using AI and exposes the evaluation as an output"
+name: "Rate Joke Action"
+description: "Rates a joke using GitHub Models"
 
 inputs:
   joke:
     description: "The joke to be rated"
     required: true
   token:
-    description: "Personal access token, can be passed as secrets.GITHUB_TOKEN"
+    description: "Personal access token to be used for GitHub Models API call"
     default: ${{ github.token }}
 
 outputs:
