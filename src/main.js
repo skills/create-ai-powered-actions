@@ -13,8 +13,8 @@ async function run() {
   
   console.log("Joke rating:", rating);
   
-  // Set the output as a JSON string
-  core.setOutput("result", JSON.stringify(rating));
+  // Set the output
+  core.setOutput("result", rating);
 }
 
 module.exports = { run };

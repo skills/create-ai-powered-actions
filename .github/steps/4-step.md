@@ -105,8 +105,6 @@ While your action provides good feedback, you want to make the data more structu
      - **Humor Type:** {% raw %}${{ fromJSON(steps.rate-joke.outputs.result).humor_type }}{% endraw %}
      - **Feedback:** {% raw %}${{ fromJSON(steps.rate-joke.outputs.result).feedback }}{% endraw %}
      
-     ---
-     *Powered by GitHub Models* ✨
    ```
 
 1. Commit and push all your changes to the `main` branch.

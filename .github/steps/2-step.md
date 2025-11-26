@@ -58,7 +58,7 @@ Let's create the source files and implement the logic for your action.
       const rating = await rateJoke(joke, token);
       
       // Set the output
-      core.setOutput("result", JSON.stringify(rating));
+      core.setOutput("result", rating);
     }
 
     module.exports = { run };
