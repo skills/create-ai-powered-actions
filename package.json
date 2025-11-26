@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "GitHub Actions created as part of the 'Create AI-Powered Actions' GitHub Skills exercise",
   "scripts": {
-    "build": "ncc build src/main.js -o dist"
+    "build": "ncc build src/index.js -o dist"
   },
   "license": "ISC",
   "type": "commonjs",
