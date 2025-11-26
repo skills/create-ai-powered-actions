@@ -99,20 +99,18 @@ To test the action locally, we need to configure a `.env` file with properly for
 
 1. Create a copy of `.env.example` file and name it `.env`
 
-  ```sh
-  cp .env.example .env
-  ```
+    ```sh
+    cp .env.example .env
+    ```
 
 1. Update the values in `.env` with your GitHub token and a test joke
 
-  ```sh
-  echo $GITHUB_TOKEN
-  ```
+    ```sh
+    echo $GITHUB_TOKEN
+    ```
 
 1. In the `Run and Debug` section of VSCode, run the action
 1. If everything works correctly, you should see the AI-generated joke rating in the debug console!
-
-
 
 ### ⌨️ Activity: Build and Package Action
 

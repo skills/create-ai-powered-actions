@@ -88,7 +88,7 @@ Let's create the GitHub Action metadata file at the repository root level.
         required: true
       token:
         description: "Personal access token to be used for GitHub Models API call"
-        default: ${{ github.token }}
+        default: {% raw %}${{ github.token }}{% endraw %}
 
     outputs:
       result:
