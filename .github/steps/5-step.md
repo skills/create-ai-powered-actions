@@ -8,15 +8,17 @@ The only thing left to do is test it out!
 
 1. Create a comment in this issue (or create a new issue).
 
-1. Comment with jokes you'd like the AI to rate. You can find example jokes on the [icanhazdadjoke](https://icanhazdadjoke.com/) website.
-1. Comment with regular comments and monitor that they are ignored by the workflow.
+1. Comment with jokes you'd like the AI to rate. Here is an example joke you can use:
 
-1. Monitor the **Actions** tab for the `Joke Action` workflow to complete:
+  ```md
+  How many tickles does it take to tickle an octopus? Ten-tickles!
+  ```
 
-   <img width="400" alt="SCR-20251113-kntg" src="https://github.com/user-attachments/assets/992da295-0123-4688-a068-d289967f2455" />
+  You can find example jokes on the [icanhazdadjoke](https://icanhazdadjoke.com/) website.
 
+1. Comment with regular comments and monitor if they are correctly classified as non-jokes.
 
-1. Mona will post the exercise review once your new Dad Joke workflow completes **successfully**! 
+1. Mona will post the exercise review once your new Rate Joke workflow completes **successfully**! 
 
    <details>
    <summary>Having trouble? 🤷</summary><br/>

@@ -89,7 +89,7 @@ While your action provides good feedback, you want to make the data more structu
       uses: peter-evans/create-or-update-comment@v5
    ```
 
-  <!-- > TODO: Add note about individual outputs -->
+    <!-- > TODO: Add note about individual outputs -->
 
 1. Update the comment body to use the structured fields:
 
