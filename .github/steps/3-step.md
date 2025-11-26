@@ -77,15 +77,15 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
     Example:
 
     ```md
-      Why did the scarecrow win an award? Because he was outstanding in his field!
+    Why did the scarecrow win an award? Because he was outstanding in his field!
     ```
 
-1. Post a comment without a joke to test non-joke handling. 
+1. Post a comment without a joke to test non-joke handling.
 
     Example:
 
     ```md
-      I love learning about GitHub Actions!
+    I love learning about GitHub Actions!
     ```
 
 1. Verify the action responds appropriately in both scenarios
