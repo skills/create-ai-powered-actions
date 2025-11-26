@@ -2,7 +2,6 @@
 
 Your AI-powered action is ready, but you need a way for users to interact with it. You'll create a workflow that listens for jokes in issue comments and automatically responds with AI-generated ratings and feedback.
 
-
 ### ⌨️ Activity: Author Workflow
 
 Let's see your Dad Jokes action in action by creating a GitHub Actions workflow that uses it!
@@ -67,7 +66,6 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
    git commit -m "Add workflow to test joke action"
    git push
    ```
-
 
 ### ⌨️ Activity: Test Workflow with Real Comments
 

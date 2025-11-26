@@ -1,8 +1,14 @@
-name: Step 3
+name: Step 4
 
 on:
-  issue_comment:
-    types: [created]
+  push:
+    branches:
+      - main
+    # paths:
+    #   - "src/**"
+    #   - "dist/**"
+    #   - ".github/workflows/**"
+      
 
 concurrency:
   group: ${{ github.workflow }}
@@ -14,10 +20,11 @@ permissions:
   issues: write
 
 env:
-  STEP_3_FILE: ".github/steps/4-step.md"
+  STEP_3_FILE: ".github/steps/5-step.md"
 
 jobs:
   find_exercise:
+    if: github.run_number != 1
     name: Find Exercise Issue
     uses: skills/exercise-toolkit/.github/workflows/find-exercise-issue.yml@v0.7.0
 
@@ -47,7 +54,7 @@ jobs:
           issue-number: ${{ env.ISSUE_NUMBER }}
           file: exercise-toolkit/markdown-templates/step-feedback/step-finished-prepare-next-step.md
           vars: |
-            next_step_number: 4
+            next_step_number: 5
 
       - name: Create comment - add step content
         uses: GrantBirki/comment@v2.1.1
@@ -66,6 +73,6 @@ jobs:
       - name: Disable current workflow and enable next one
         run: |
           gh workflow disable "${{github.workflow}}"
-          gh workflow enable "Step 4"
+          gh workflow enable "Step 5"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

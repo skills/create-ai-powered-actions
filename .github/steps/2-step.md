@@ -2,26 +2,6 @@
 
 Now that your action can connect to GitHub Models, it's time to implement the core logic that will analyze jokes and provide ratings. You'll create the main action code that processes comments and generates AI-powered feedback.
 
-### 📖 Theory: AI Model Integration and Error Handling
-
-**Model Selection** is crucial for optimal performance and cost:
-
-- **Low-tier models** (like GPT-4o-mini) are suitable for simple text analysis tasks
-- **Rate limit management** requires handling API limits gracefully with retry logic
-- **Prompt engineering** affects output quality - clear, specific prompts yield better results
-
-**Error Handling** for AI services should account for:
-
-- Network timeouts and connection issues
-- Rate limit exceeded responses (HTTP 429)
-- Invalid or malformed responses from the AI model
-- Token limit exceeded errors
-
-For more information, see:
-
-- [GitHub Models API - Chat completions](https://docs.github.com/en/rest/models/chat-completions)
-- [OpenAI SDK documentation](https://github.com/openai/openai-node)
-
 ### ⌨️ Activity: Implement the Action
 
 Let's create the source files and implement the logic for your action.
@@ -123,4 +103,3 @@ Let's build and package the action for distribution.
    ```
 
 1. Commit and push all the changes to the `main` branch.
-
