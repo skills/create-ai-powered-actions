@@ -83,11 +83,13 @@ To test the action locally, we need to configure a `.env` file with properly for
     cp .env.example .env
     ```
 
-1. Update the values in `.env` with your GitHub token and a test joke
+1. Update the values in `.env` with your GitHub token
 
     ```sh
     echo $GITHUB_TOKEN
     ```
+
+    <!-- TODO: Mention you can also update the joke here -->
 
 1. In the `Run and Debug` section of VSCode, run the action
 1. If everything works correctly, you should see the AI-generated joke rating in the debug console!

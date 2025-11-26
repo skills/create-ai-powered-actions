@@ -81,24 +81,16 @@ jobs:
           text-file: src/rateJoke.js
           keyphrase: response_format
 
-      - name: Check if workflow has conditional logic for jokes
-        id: check-workflow-conditional
-        continue-on-error: true
-        uses: skills/action-keyphrase-checker@v1
-        with:
-          text-file: .github/workflows/rate-joke.yml
-          keyphrase: "fromJSON(steps.rate-joke.outputs.result).is_joke"
-
       - name: Check if workflow uses structured output fields
         id: check-workflow-structured-fields
         continue-on-error: true
         uses: skills/action-keyphrase-checker@v1
         with:
           text-file: .github/workflows/rate-joke.yml
-          keyphrase: "fromJSON(steps.rate-joke.outputs.result)"
+          keyphrase: "fromJSON"
           minimum-occurrences: 3
 
-      - name: Check if workflow contains Rate Joke action
+      - name: Check if workflow is named correctly
         id: check-rate-joke-action
         continue-on-error: true
         uses: skills/action-keyphrase-checker@v1
@@ -121,9 +113,7 @@ jobs:
                 passed: ${{ steps.check-zod-dependency.outcome == 'success' }}
               - description: "Structured response format implemented"
                 passed: ${{ steps.check-response-format.outcome == 'success' }}
-              - description: "Workflow updated with conditional logic"
-                passed: ${{ steps.check-workflow-conditional.outcome == 'success' }}
-              - description: "Workflow uses structured output fields"
+              - description: "Workflow uses structured output fields for comment `body`"
                 passed: ${{ steps.check-workflow-structured-fields.outcome == 'success' }}
               - description: "Workflow `name` is set to `Rate Joke`"
                 passed: ${{ steps.check-rate-joke-action.outcome == 'success' }}

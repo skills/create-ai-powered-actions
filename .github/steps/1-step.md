@@ -52,7 +52,7 @@ Now that your Codespace is ready, let's install the OpenAI SDK, which you'll use
 
 Let's create the GitHub Action metadata file at the repository root level.
 
-1. Create action.yml at the repository root with the following content:
+1. Create `action.yml` file at the repository root and define the action metadata as shown below.
 
     <!-- TODO: Describe the action metadata file option present below -->
 

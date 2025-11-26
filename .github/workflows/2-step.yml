@@ -101,9 +101,9 @@ jobs:
             results_table:
               - description: "Created src/rateJoke.js with AI integration logic"
                 passed: ${{ steps.check-ratejoke-file.outcome == 'success' }}
-              - description: "Created src/main.js with action entry point logic"
+              - description: "Created src/main.js with main action logic"
                 passed: ${{ steps.check-main-file.outcome == 'success' }}
-              - description: "Created src/index.js as the main entry point"
+              - description: "Created src/index.js calling the run function"
                 passed: ${{ steps.check-index-file.outcome == 'success' }}
               - description: "Built and packaged action into dist directory"
                 passed: ${{ steps.check-dist-directory.outcome == 'success' }}

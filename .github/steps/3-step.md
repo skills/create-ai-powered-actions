@@ -69,7 +69,8 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
 
 ### ⌨️ Activity: Test Workflow with Real Comments
 
-1. Create a test issue in your repository
+Let's try testing the workflow by commenting right here, on the issue!
+
 1. Post a comment containing a joke to trigger the workflow.
   
     Example:
@@ -78,7 +79,9 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
     Why did the scarecrow win an award? Because he was outstanding in his field!
     ```
 
-1. Post a comment without a joke to test non-joke handling.
+   After a moment, you should see the comment get updated.
+
+1. (optional) Post a comment without a joke to test non-joke handling.
 
     Example:
 
@@ -86,4 +89,4 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
     I love learning about GitHub Actions!
     ```
 
-1. Verify the action responds appropriately in both scenarios
+1. With the comment added, Mona should share the next steps!

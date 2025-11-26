@@ -9,7 +9,13 @@
         "redhat.vscode-yaml",
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint"
-      ]
+      ],
+      "settings": {
+        "[yaml]": {
+          "editor.tabSize": 2,
+          "editor.defaultFormatter": "redhat.vscode-yaml"
+        }
+      }
     }
   }
 }

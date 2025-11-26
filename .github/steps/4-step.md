@@ -17,8 +17,6 @@ While your action provides good feedback, you want to make the data more structu
 
 1. Replace the contents of your `src/rateJoke.js` file. 
 
-   This looks very similar to your previous implementation, but now includes the Zod schema definition and uses it for structured outputs from the AI model.
-
     ```js
     const OpenAI = require("openai");
     const { zodResponseFormat } = require("openai/helpers/zod");
@@ -64,6 +62,8 @@ While your action provides good feedback, you want to make the data more structu
     module.exports = { rateJoke };
 
     ```
+
+    This looks very similar to your previous implementation, but now includes the Zod schema definition and uses it for structured outputs from the AI model.
 
 ### ⌨️ Activity: Test locally and update build
 
