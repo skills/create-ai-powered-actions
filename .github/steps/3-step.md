@@ -20,25 +20,21 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
    .github/workflows/rate-joke.yml
    ```
 
-1. Let's define the workflow to trigger on new issue comments and run your action and add the required permissions:
+1. Let's define the workflow to trigger on new issue comments and run your action with the comment `body` as `joke` input:
 
    ```yaml
    name: Rate Joke
    run-name: {% raw %}Rate Joke by ${{ github.event.comment.user.login }}{% endraw %}
 
    on:
-    issue_comment:
-      types: [created]
+     issue_comment:
+       types: [created]
 
    permissions:
-    issues: write
-    contents: read
-    models: read
-   ```
+     issues: write
+     contents: read
+     models: read
 
-1. Let's add a job that uses your action to rate the joke provided in the issue comment `body`:
-
-   ```yaml
    jobs:
      joke:
        name: Rate Joke
@@ -49,29 +45,30 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
            id: rate-joke
            uses: ./
            with:
-            joke: {% raw %}${{ github.event.comment.body }}{% endraw %}
-            token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-
+             joke: {% raw %}${{ github.event.comment.body }}{% endraw %}
+             token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
    ```
 
 1. Now let's use the `peter-evans/update-comment` action to update the original comment in-place and use the result of your action.
 
-   ```yaml
-    - name: Update comment
-      uses: peter-evans/create-or-update-comment@v5
-      with:
-      comment-id: {% raw %}${{ github.event.comment.id }}{% endraw %}
-      reactions: laugh
-      edit-mode: replace
-      body: |
-         ## 🤖 AI Joke Rating Results
-         
-         **Your joke:**
-         > {% raw %}${{ github.event.comment.body }}{% endraw %}
-         
-         **AI Analysis:**
-         {% raw %}${{ steps.rate-joke.outputs.result }}{% endraw %}
-   ```
+   Add the following step to your workflow:
+
+    ```yaml
+     - name: Update comment
+       uses: peter-evans/create-or-update-comment@v5
+       with:
+         comment-id: {% raw %}${{ github.event.comment.id }}{% endraw %}
+         reactions: laugh
+         edit-mode: replace
+         body: |
+           ## 🤖 AI Joke Rating Results
+
+           **Your joke:**
+           > {% raw %}${{ github.event.comment.body }}{% endraw %}
+
+           **AI Analysis:**
+           {% raw %}${{ steps.rate-joke.outputs.result }}{% endraw %}
+    ```
 
 1. Commit and push the workflow file to the `main` branch:
 
@@ -86,22 +83,24 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
 Let's try testing the workflow by commenting right here, on the issue!
 
 1. Post a comment containing a joke to trigger the workflow.
-  
-    Example:
 
-    ```md
-    Why did the scarecrow win an award? Because he was outstanding in his field!
-    ```
+   Example:
+
+   ```md
+   Why did the scarecrow win an award? Because he was outstanding in his field!
+   ```
 
    After a moment, you should see the comment you added get updated.
 
+   You can also monitor the Actions tab of your repository to see the workflow run and check for any errors.
+
 1. (optional) Post a comment without a joke to test how your action will handle non-joke comments.
 
-    Example:
+   Example:
 
-    ```md
-    I love learning about GitHub Actions!
-    ```
+   ```md
+   I love learning about GitHub Actions!
+   ```
 
 1. With the comment added, Mona should share the next steps!
 
