@@ -131,7 +131,7 @@ To test the action locally, we need to configure a `.env` file with properly for
 
 ### ⌨️ Activity: Build and Package Action
 
-Let's build and package the action for distribution.
+Now that you've verified your action works correctly when tested locally - let's build and package the action for distribution.
 
 1. Let's build your action by running:
 
@@ -140,3 +140,5 @@ Let's build and package the action for distribution.
    ```
 
 1. Commit and push all the changes to the `main` branch.
+1. With the changes pushed to GitHub, Mona will check your work and share the next steps.
+
