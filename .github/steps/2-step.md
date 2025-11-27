@@ -113,8 +113,21 @@ To test the action locally, we need to configure a `.env` file with properly for
 
     > ✨ **Bonus:** If you are familiar with the debugging features of VSCode, set breakpoints in your code to step through the execution and inspect variables.
 
+   <img width="400" alt="image showing run and debug section of vscode and a button to run action" src="https://github.com/user-attachments/assets/8be1b62f-8c11-4af0-9e0a-255b9d33f83e" />
+
+   > 🪧 **Note:** The run configuration is stored in `.vscode/launch.json` and it uses `@github/local-action` together with your `.env` file
+
 
 1. If everything works correctly, you should see the AI-generated joke rating in the debug console!
+
+   <details>
+   <summary>📸 Show screenshot</summary><br/>
+
+   <img width="800" alt="image showing github/local-action debug logs in vscode console" src="https://github.com/user-attachments/assets/3eec5e80-21a7-4f55-b7ff-25f6a710874f" />
+
+   </details>
+
+
 
 ### ⌨️ Activity: Build and Package Action
 
