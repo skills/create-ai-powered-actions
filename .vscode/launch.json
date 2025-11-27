@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug Action",
+      "name": "Run Action",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "npx",

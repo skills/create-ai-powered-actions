@@ -49,7 +49,7 @@ While your action provides good feedback, you want to make the data more structu
             content: `Please rate this joke: "${joke}"`,
           },
         ],
-        model: "openai/gpt-4.1",
+        model: "openai/gpt-4.1-mini",
 
         // Use Zod schema for structured response
         response_format: zodResponseFormat(JokeRatingSchema, "joke_rating"),
