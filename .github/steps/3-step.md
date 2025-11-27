@@ -70,6 +70,8 @@ Let's see your Dad Jokes action in action by creating a GitHub Actions workflow 
            {% raw %}${{ steps.rate-joke.outputs.result }}{% endraw %}
     ```
 
+    Ensure the indentation is correct in your YAML file.
+
 1. Commit and push the workflow file to the `main` branch:
 
    ```sh
