@@ -141,4 +141,3 @@ Now that you've verified your action works correctly when tested locally - let's
 
 1. Commit and push all the changes to the `main` branch.
 1. With the changes pushed to GitHub, Mona will check your work and share the next steps.
-
