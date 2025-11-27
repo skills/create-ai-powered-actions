@@ -52,11 +52,10 @@ Now that your Codespace is ready, let's install the OpenAI SDK, which you'll use
 
 ### ⌨️ Activity: Create Metadata File
 
-Let's create the GitHub Action metadata file at the repository root level.
+The action we will create today will accept a joke as input and return an AI-generated evaluation of that joke.
 
 1. Create `action.yml` file at the repository root and define the action metadata as shown below.
 
-   <!-- TODO: Describe the action metadata file option present below -->
 
    ```yml
    name: "Rate Joke Action"
