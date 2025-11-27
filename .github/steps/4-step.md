@@ -85,15 +85,17 @@ Let's start off by installing [Zod](https://zod.dev/) in your action project.
 
 1. In the `Run and Debug` section of VSCode, run the action
 1. You should see the `result` output containing structured JSON data matching the defined schema.
-1. Since we did code changes, we need to update your action distribution by running:
+1. Since we introduced code changes, we need to update the action distribution by running the build command:
 
    ```sh
    npm run build
    ```
 
-   This should update your `dist/index.js` file with the latest code.
+   This should update your `dist/index.js` file with the latest code changes.
 
 ### ⌨️ Activity: Update Workflow with Conditional Logic
+
+Okay! Now that the action returns structured data, we can update the workflow to only update comments when the input is actually a joke.
 
 1. Open your workflow file at `.github/workflows/rate-joke.yml`.
 1. Update the `Update Comment` step to only trigger if the input is a joke:
@@ -103,8 +105,6 @@ Let's start off by installing [Zod](https://zod.dev/) in your action project.
      if: fromJSON(steps.rate-joke.outputs.result).is_joke == true
      uses: peter-evans/create-or-update-comment@v5
    ```
-
-    <!-- > TODO: Add note about individual outputs -->
 
 1. Update the comment body to use the structured fields:
 
@@ -122,3 +122,9 @@ Let's start off by installing [Zod](https://zod.dev/) in your action project.
    ```
 
 1. Commit and push all your changes to the `main` branch.
+1. With the changes pushed to GitHub, Mona will check your work and share the next steps.
+
+> [!TIP]
+> While in this action we use a single JSON `result` output and parse it in the workflow - it may be a good idea to expose the structured fields as individual outputs in the action
+>
+> Later, once you have finished the exercise, feel free to revisit the action code to add individual outputs for `is_joke`, `score`, `humor_type`, and `feedback` for easier consumption in workflows!
