@@ -101,11 +101,15 @@ To test the action locally, we need to configure a `.env` file with properly for
    cp .env.example .env
    ```
 
-1. Open `.env` and replace the placeholder value with your GitHub token.
+1. Run this command inside your terminal to get your GitHub token:
 
    ```sh
    echo $GITHUB_TOKEN
    ```
+
+   And copy it into your clipboard
+
+1. Open `.env` file and replace the placeholder value of `INPUT_TOKEN` with your GitHub token.
 
    > ✨ **Bonus:** Try changing the joke input to test different punchlines! But be mindful of rate limits!
 

@@ -78,5 +78,7 @@ The action we will create today will accept a joke as input and return an AI-gen
      main: dist/index.js
    ```
 
+   > ❕ **Important:** If you are not familiar with what this file is, pause and  complete the **[write-javascript-actions](https://github.com/skills-dev/write-javascript-actions) exercise first**.
+
 1. Commit and push the changes to the `main` branch.
 1. With the changes pushed to GitHub, Mona will check your work and share the next steps.

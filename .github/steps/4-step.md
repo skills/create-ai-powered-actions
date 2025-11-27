@@ -81,9 +81,11 @@ Let's start off by installing [Zod](https://zod.dev/) in your action project.
 
    This looks very similar to your previous implementation, but now includes the Zod schema definition and uses it for structured outputs from the AI model.
 
+   Additionally, this function now returns a JSON object matching the defined schema instead of plain text.
+
 ### ⌨️ Activity: Test locally and update build
 
-1. In the `Run and Debug` section of VSCode, run the action
+1. In the `Run and Debug` section of VSCode, run the action.
 1. You should see the `result` output containing structured JSON data matching the defined schema.
 1. Since we introduced code changes, we need to update the action distribution by running the build command:
 
