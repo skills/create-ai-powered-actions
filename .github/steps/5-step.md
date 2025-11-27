@@ -6,19 +6,41 @@ The only thing left to do is test it out!
 
 ### ⌨️ Activity: Try out your action
 
-1. Create a comment in this issue (or create a new issue).
+If everything works correctly, your workflow should update the joke comments and leave the generic comments unchanged.
 
-1. Comment with jokes you'd like the AI to rate. Here is an example joke you can use:
+Let's try that out!
+
+1. Right here in this issue, comment with a joke you would like the AI to rate. Here are some examples
 
     ```md
     How many tickles does it take to tickle an octopus? Ten-tickles!
     ```
 
-    You can find example jokes on the [icanhazdadjoke](https://icanhazdadjoke.com/) website.
+    ```md
+    Want to hear my pizza joke? Never mind, it's too cheesy.
+    ```
 
-1. Comment with regular comments and monitor if they are correctly classified as non-jokes.
+    ```md
+    Why don't sharks eat clowns? Because they taste funny.
+    ```
 
-1. Mona will post the exercise review once your new Rate Joke workflow completes **successfully**! 
+    > 🪧 **Note:** You can find more jokes on the [icanhazdadjoke](https://icanhazdadjoke.com/) website.
+
+1. Let's try commenting with a non-joke comment and monitor the Actions tab if they are correctly classified. Here are some examples.
+
+    ```md
+    I love learning about GitHub Actions!
+    ```
+
+    ```md
+    What's the weather like today?
+    ```
+
+    ```md
+    Can someone help me with my code?
+    ```
+
+1. Mona will post the exercise review once your new Rate Joke workflow completes **successfully**!
 
    <details>
    <summary>Having trouble? 🤷</summary><br/>
@@ -28,4 +50,7 @@ The only thing left to do is test it out!
    - Verify that your `dist/index.js` file exists and was committed
    - If you did any updates to your source code, ensure you re-bundled with `npm run build` and pushed the changes
    - Ensure your workflow file is correctly formatted
+
+    If you are not receiving reviews from Mona:
+    - Ensure your workflow is named `Rate Joke` and completes successfully
    </details>
