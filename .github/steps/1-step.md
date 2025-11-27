@@ -1,6 +1,10 @@
-## Step 1: Setup AI-Powered Action Foundation
+## Step 1: Setup the action to rate your jokes!
 
 Your development team wants to add intelligence to your joke-handling action. The first step is setting up the foundation to connect with GitHub Models and prepare your action for AI integration.
+
+
+<img width="600" alt="two octocat share a science pun" src="https://github.com/user-attachments/assets/6ea16f47-5cf8-4448-9e4d-04283072822c" />
+
 
 ### ⌨️ Activity: Set up your development environment
 
