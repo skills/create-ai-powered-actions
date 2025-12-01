@@ -40,6 +40,10 @@ Let's try that out!
     Can someone help me with my code?
     ```
 
+    For all of the non-joke comments, the workflow should leave them unchanged.
+
+    In the workflow logs you should see the `Update comment` step being skipped.
+
 1. Mona will post the exercise review once your new Rate Joke workflow completes **successfully**!
 
    <details>
@@ -54,3 +58,6 @@ Let's try that out!
     If you are not receiving reviews from Mona:
     - Ensure your workflow is named `Rate Joke` and completes successfully
    </details>
+
+> [!NOTE]
+> Even after the exercise is finished, you can continue commenting with jokes or non-jokes!
