@@ -1,6 +1,6 @@
 # Create AI Powered Actions
 
-_Build intelligent GitHub Actions that leverage AI models to analyze and respond to user content._
+_Build intelligent Javascript based GitHub Actions that leverage GitHub Models._
 
 ## Welcome
 
