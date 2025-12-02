@@ -23,6 +23,8 @@ Let's see your Rate Jokes action in action by creating a workflow that uses it!
    .github/workflows/rate-joke.yml
    ```
 
+   > 🪧 Note: For learning purposes, we create the workflow in the same repository as your action. However, you would typically consume your published action from another project/repository.
+
 1. Let's define the workflow to trigger on new issue comments and set the required permissions:
 
    ```yaml
@@ -37,8 +39,7 @@ Let's see your Rate Jokes action in action by creating a workflow that uses it!
      issues: write
      contents: read
      models: read
-
-
+     
    ```
 
 1. Now let's add a job to run your action and update the comment with the AI joke analysis.
@@ -46,7 +47,6 @@ Let's see your Rate Jokes action in action by creating a workflow that uses it!
    Add the following step to your workflow:
 
    ```yaml
-
    jobs:
      joke:
        name: Rate Joke
