@@ -87,13 +87,16 @@ Let's start off by installing [Zod](https://zod.dev/) in your action project.
 
 1. In the `Run and Debug` section of VSCode, run the action.
 1. You should see the `result` output containing structured JSON data matching the defined schema.
-1. Since we introduced code changes, we need to update the action distribution by running the build command:
+1. With our changes working, let's now build the distribution version
 
    ```sh
    npm run build
    ```
 
    This should update your `dist/index.js` file with the latest code changes.
+
+> [!IMPORTANT]
+> Updating your build is crucial whenever you make changes to the source code. Failing to do so will result in the action running outdated code when executed in GitHub workflows.
 
 ### ⌨️ Activity: Update Workflow with Conditional Logic
 
