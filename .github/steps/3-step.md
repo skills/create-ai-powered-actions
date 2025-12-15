@@ -1,6 +1,6 @@
 ## Step 3: Create Workflow to test your Action
 
-Let's pause for a moment with the code changes and set up a workflow to test your action in a real GitHub Actions environment.
+Pause for a moment! We need a way to test your actions in a real GitHub environment.
 
 Let's create a workflow that will trigger your action whenever a new comment is added to an issue. Your action will analyze the joke in the comment and we will use that result to update the comment with the AI-generated rating.
 
