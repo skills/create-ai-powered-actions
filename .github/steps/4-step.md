@@ -10,7 +10,7 @@ Let’s change that by using structured outputs!
 
 [Structured outputs](https://platform.openai.com/docs/guides/structured-outputs) let you ask models for well-formed data (JSON) instead of free text, making downstream automation and integrations reliable.
 
-Structured Outputs that ensures the model will always generate responses that adhere to your supplied JSON Schema.
+Structured Outputs ensure that the model always generates responses that adhere to your supplied JSON Schema.
 
 [Zod](https://zod.dev/) is a popular schema declaration and validation library that can be used instead of writing raw [JSON Schemas](https://json-schema.org/).
 

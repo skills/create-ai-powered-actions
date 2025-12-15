@@ -8,7 +8,7 @@ Let's first understand how we will interact with GitHub Models using the OpenAI 
 
 [GitHub Models](https://github.com/features/models) brings AI into your developer workflow with a single API key that unlocks multiple leading models.
 
-Usage of GitHub Models is subject to different tiers of [rate limits](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#rate-limits). Additionally, different models may have varying rate limits. Be especially mindful of that if you don't have a paid Copilot plan.
+GitHub Models use different [rate limits](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models#rate-limits), and limits vary by model. Be especially mindful of that if you don't have a paid Copilot plan.
 
 All models are also accessible programmatically, which is exactly what we need for our action! You can use regular HTTP requests or leverage existing SDKs to interact with GitHub Models - as you may have already guessed, we'll be using the OpenAI SDK for this exercise.
 
